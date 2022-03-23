@@ -1,0 +1,27 @@
+{
+ "baseUrl":"support/slwebview_files",
+ "homeHid":1,
+ "initialElement":"",
+ "sections":[
+  {
+   "hid":1,
+   "sid":"simulacao_com_referencia",
+   "name":"simulacao_com_referencia",
+   "fullname":"simulacao_com_referencia",
+   "label":"simulacao_com_referencia*",
+   "parent":0,
+   "descendants":[
+    2,
+    3
+   ],
+   "hierarchyUrl":"support/slwebview_files/simulacao_com_referencia_h_1.json",
+   "backingUrl":"support/slwebview_files/simulacao_com_referencia_m.json"
+  }
+ ],
+ "optViews":[
+ ],
+ "display":{
+  "informer":false
+ },
+ "iconsUrl":"support/slwebview_files/simulacao_com_referencia_icons.css"
+}

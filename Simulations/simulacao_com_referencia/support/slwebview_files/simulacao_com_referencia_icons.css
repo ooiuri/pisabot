@@ -1,0 +1,11 @@
+.simulacao_com_referencia0,
+.simulacao_com_referencia1,
+.simulacao_com_referencia2,
+.simulacao_com_referencia3,
+.simulacao_com_referencia4 { background-image: url('simulacao_com_referencia_icons.png'); width: 16px; height: 16px; }
+
+.simulacao_com_referencia0 { background-position: -0px; }
+.simulacao_com_referencia1 { background-position: -16px; }
+.simulacao_com_referencia2 { background-position: -32px; }
+.simulacao_com_referencia3 { background-position: -48px; }
+.simulacao_com_referencia4 { background-position: -64px; }

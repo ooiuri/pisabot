@@ -23,7 +23,9 @@ int range = 16384;//reference value for 180 degrees
 float error = 0, lasterror = 0;
 float vel = 0;
 float kp = 10;
-float p = 0;
+float kd = 4;
+float ki = 1;
+float p = 0, d = 0, i = 0;
 
 
 //mpu data
@@ -40,7 +42,8 @@ void setup() {
   // Set the maximum speed in steps per second:
   stepperA.setMaxSpeed(1000);
   stepperB.setMaxSpeed(1000);
-
+  stepperA.setSpeed(400);
+  stepperB.setSpeed(-400);
   /*-mpu setup-*/
   Serial. begin ( 9600 ) ;
   Wire. begin (23, 22, 100000) ;
@@ -58,16 +61,25 @@ void loop() {
   medangle += angles[pos] / (tam * 1.0);
 
   error = ref - medangle;
-
   
   p = kp*error;
-  vel = p;
+  d = kd*(lasterror - error);
+  i = ki*(error + lasterror);
+  vel = p + d + i;
 
-  //Serial.print("Angulo_com_filtro:");
-  //Serial.print(medangle);
-  //Serial.print(",");
-  //Serial.print("Angulo_sem_filtro:");
-  //Serial.println(angles[pos]);
+  Serial.print("medangle: ");
+  Serial.print(medangle);
+  Serial.print("\t error: ");
+  Serial.print(error);
+  Serial.print("\t p: ");
+  Serial.print(p);
+  Serial.print("\t d: ");
+  Serial.print(d);
+  Serial.print("\t i: ");
+  Serial.print(i);
+  Serial.print("\t vel: ");
+  Serial.println(vel);
+  
   //Serial.print(" ");
   if (pos == tam - 1) {
     pos = 0;
@@ -75,13 +87,14 @@ void loop() {
     pos++;
   }
 
-
   // Set the speed in steps per second:
-  stepperA.setSpeed(-400);
-  stepperB.setSpeed(400);
+//  stepperA.setSpeed(400);
+//  stepperB.setSpeed(-400);
   // Step the motor with a constant speed as set by setSpeed():
   stepperA.runSpeed();
   stepperB.runSpeed();
+  
+  lasterror = error;
 }
 
 
