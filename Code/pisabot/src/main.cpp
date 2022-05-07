@@ -13,13 +13,17 @@ AccelStepper stepperB = AccelStepper(motorInterfaceType, stepPinB, dirPinB);
 
 void setup()
 {  
-  stepperA.setMaxSpeed(50.0);
+  stepperA.setMaxSpeed(800.0);
   stepperA.setAcceleration(50.0);
-  stepperA.moveTo(1000);
+  // stepperA.moveTo(1000);
   
-  stepperB.setMaxSpeed(50.0);
+  stepperB.setMaxSpeed(800.0);
   stepperB.setAcceleration(50.0);
-  stepperB.moveTo(-1000);
+  // stepperB.moveTo(-1000);
+
+  stepperA.move(10);
+  stepperB.move(10);
+
 }
 void loop()
 {
