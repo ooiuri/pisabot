@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include <MPU6050_tockn.h>
 #include <Wire.h>
+#include <MPU6050_tockn.h>
 #include <Filters/Butterworth.hpp>
 #include <Filters.h>
 
